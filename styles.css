@@ -1,0 +1,7 @@
+/* Basic starting styles. Make your own readable layout. */
+body { font-family: Arial, sans-serif; max-width: 850px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+label { display: block; margin-top: 1rem; }
+input[type=text], textarea { width: 100%; max-width: 36rem; padding: .5rem; box-sizing: border-box; }
+textarea { min-height: 7rem; }
+button { padding: .6rem 1rem; cursor: pointer; }
+li { margin-bottom: .5rem; }
