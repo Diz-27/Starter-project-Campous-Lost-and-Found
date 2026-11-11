@@ -1,7 +1,154 @@
 /* Basic starting styles. Make your own readable layout. */
-body { font-family: Arial, sans-serif; max-width: 850px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+/* body { font-family: Arial, sans-serif; max-width: 850px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
 label { display: block; margin-top: 1rem; }
 input[type=text], textarea { width: 100%; max-width: 36rem; padding: .5rem; box-sizing: border-box; }
 textarea { min-height: 7rem; }
 button { padding: .6rem 1rem; cursor: pointer; }
-li { margin-bottom: .5rem; }
+li { margin-bottom: .5rem; } */
+
+
+/* I'm going to use this for future pages. I need practice on front in and this is so beautiful */
+
+/* General page styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 25px;
+    line-height: 1.6;
+    background-color: #F3F6FA;
+    color: #263445;
+}
+
+/* Headings */
+h1 {
+    color: #142B45;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    border-bottom: 4px solid #E7B968;
+    padding-bottom: 12px;
+}
+
+h2 {
+    color: #142B45;
+    font-size: 1.6rem;
+    margin-top: 25px;
+}
+
+/* Paragraphs */
+p {
+    margin: 12px 0;
+}
+
+/* Links */
+a {
+    color: #315E8A;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #142B45;
+    text-decoration: underline;
+}
+
+/* Navigation / report links */
+body > p > a {
+    display: inline-block;
+    margin: 8px 0;
+}
+
+/* Item list */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
+li {
+    background-color: white;
+    border: 1px solid #DCE3EB;
+    border-left: 5px solid #E7B968;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.2s ease;
+}
+
+/* Forms */
+form {
+    background-color: white;
+    padding: 25px;
+    border: 1px solid #DCE3EB;
+    border-radius: 10px;
+    margin-top: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #142B45;
+}
+
+/* Input fields */
+input[type="text"],
+textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* Input focus */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #315E8A;
+    box-shadow: 0 0 0 3px rgba(49, 94, 138, 0.15);
+}
+
+/* Buttons */
+button {
+    background-color: #142B45;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 22px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background-color: #315E8A;
+    transform: translateY(-1px);
+}
+
+/* Form buttons */
+form p {
+    margin-top: 22px;
+}
+

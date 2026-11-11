@@ -13,3 +13,5 @@ try {
     echo "Database connection error: $error";
     exit;
 }
+
+

@@ -16,7 +16,7 @@ if ($item === false) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    markClaimed($db, $id);
+    markClaimed($db, $id, $item);
     header('Location: index.php');
     exit;
 }
