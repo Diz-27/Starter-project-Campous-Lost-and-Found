@@ -1,4 +1,8 @@
 <?php
+// To back out of a directory use /../ first.
+// require_once is so it won't cause an error when the file is being used elsewhere.
+require_once __DIR__ . '/../classes/FoundItem.php';
+
 function getUnclaimedItems(PDO $db): array
 {
     $sql = 'SELECT item_id, item_name, location_found FROM found_items
@@ -8,7 +12,7 @@ function getUnclaimedItems(PDO $db): array
 }
 
 // Task 1: Retrieve one item using a prepared SELECT and the supplied ID.
-function getItem(PDO $db, int $id): array
+function getItem(PDO $db, int $id): FoundItem
 {
     // Prepare the statement, supply the ID, and return the fetched row.
     $sql = 'SELECT * FROM found_items
@@ -18,11 +22,18 @@ function getItem(PDO $db, int $id): array
     $statement = $db->prepare($sql);
     $statement->execute([':id' => $id]);
 
-    return $statement->fetch(); // Replace this temporary return with your fetched result.
-}
+    //make an item for this result
+    $row = $statement->fetch((PDO::FETCH_ASSOC)); // Replace this temporary return with your fetched result.
+    return new FoundItem(
+        $row['item_name'],
+        $row['description'],
+        $row['location_found'],
+        $row['claimed']
+    );
+    }
 
 // Task 2: Mark only the selected item claimed using a prepared UPDATE.
-function markClaimed(PDO $db, int $id): void
+function markClaimed(PDO $db, int $id, FoundItem $item): void
 {
     // Set claimed to 1. Use the ID to target the correct row.
     $sql = 'UPDATE found_items
@@ -32,14 +43,13 @@ function markClaimed(PDO $db, int $id): void
     $statement = $db->prepare($sql);
 
     // ******************** THIS IS NOT WHAT WE DID IN CLASS, FIND A BETTER SOLUTION.************
-    $statement->bindValue(':id', $id, PDO::PARAM_INT);
-    $statement->execute();
-    
+    // $statement->bindValue(':id', $id, PDO::PARAM_INT);
+    // $statement->execute();
+
     // see if i'm doing the execute right
-    // $statement->execute([
-    //     ':id' => $id,
-    //     ':claimed' => $item->claimed ? 1 : 0,
-    // ]);
+    $statement->execute([
+        ':id' => $id,
+    ]);
 
 
 }

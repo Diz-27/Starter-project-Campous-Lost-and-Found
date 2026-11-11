@@ -22,8 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($locationFound === '') {
         $errors[] = 'Enter the location found.';
     }
+   
     if (!$errors) {
-        $item = new FoundItem($itemName, $description, $locationFound);
+        $item = new FoundItem($itemName, $description, $locationFound, $claimed = 0);
         addItem($db, $item);
         header('Location: index.php');
         exit;

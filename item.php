@@ -27,10 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <h1>Found item</h1>
 <p><a href="index.php">Back to unclaimed items</a></p>
-<h2><?= htmlspecialchars($item['item_name']) ?></h2>
-<p><?= htmlspecialchars($item['description']) ?></p>
-<p>Found at: <?= htmlspecialchars($item['location_found']) ?></p>
-<?php if ((int) $item['claimed'] === 0): ?>
+<!-- We had to change things around since we did things differently in item-functions.php -->
+<h2><?= htmlspecialchars($item->itemName) ?></h2>
+<p><?= htmlspecialchars($item->description) ?></p>
+<p>Found at: <?= htmlspecialchars($item->locationFound) ?></p>
+<?php if ( $item->claimed === 0): ?>
 <form action="item.php" method="post">
     <input type="hidden" name="item_id" value="<?= $id ?>">
     <button type="submit">Mark claimed</button>
